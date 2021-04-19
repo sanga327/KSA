@@ -1,7 +1,8 @@
 
 // 예제 10-7. 배열에 값을 입력하는 함수
-#include <stdio.h>
+
 #define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
 
 void input_ary(double *pa, int size);
 double find_max(double *pa, int size);
@@ -23,7 +24,7 @@ void input_ary(double *pa, int size) {
 
 	printf("%d개의 실수값 입력: ", size);
 	for (i = 0; i < size; i++) {
-		scanf_s("%lf", pa + i,sizeof(4));
+		scanf("%lf", pa + i);
 	}
 }
 
