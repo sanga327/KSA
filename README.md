@@ -27,3 +27,14 @@
 
 - Python
 - Anaconda
+
+
+
+**[모듈 3] 파이썬을 활용한 기계학습**  
+(2021.04.26 - 2021.04.30)
+
+- Jupyter Notebook
+- Machine Learning 알고리즘
+  - LinearRegression | Random Forest | SVM | 
+  - Machine Learning 프로젝트
+
