@@ -1,52 +1,350 @@
-# 화소 점 처리 실습
+﻿
+// ImageProcessingDoc.cpp: CImageProcessingDoc 클래스의 구현
+//
 
-> **산술연산**(덧셈 연산, 뺄셈 연산, 곱셈 연산, 나눗셈 연산)
->
-> **논리연산**(AND, OR, XOR)
->
-> **기타**(영상 반전 변환, 감마보정, 영상 이진화, 범위 강조 변환)
->
-> **히스토그램**(스트레칭, End-in search, 히스토그램, 평활화, 명세화)
+#include "pch.h"
+#include "framework.h"
+// SHARED_HANDLERS는 미리 보기, 축소판 그림 및 검색 필터 처리기를 구현하는 ATL 프로젝트에서 정의할 수 있으며
+// 해당 프로젝트와 문서 코드를 공유하도록 해 줍니다.
+#ifndef SHARED_HANDLERS
+#include "ImageProcessing.h"
+#endif
 
-<br>
+#include "ImageProcessingDoc.h"
+#include "CDownSampleDlg.h" 
+#include "CUpSampleDlg.h"
+#include "CQuantizationDlg.h" // 대화상자 사용을 위한 헤더 선언
+#include "math.h" // 수학 함수 사용을 위한 헤더 선언
+#include "CConstantDlg.h"  // 상수 입력 대화상자 사용을 위한 헤더 선언
+#include "CStressTransformDlg.h" // 범위 강조 대화상자를 위한 헤더 선언
 
-- **Class** : CConstantDlg.cpp, CStressTransformDlg.cpp
-
-- **Dialog** : IDD_DIALOG4(상수값 입력), IDD_DIALOG5(화소값 범위 선택)
-
-- **Function**
-
-  - **산술연산**: OnSumConstant, OnSubConstant, OnMulConstant,  OnDivConstant
-
-  - **논리연산**: OnAndOperate, OnOrOperate, OnXorOperate
-  - **기타**: OnNegaTransform, OnGammaCorrection, OnBinarization, OnStressTransform
-  - **히스토그램**: 
+#include <propkey.h>
 
 
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#endif
 
----
+// CImageProcessingDoc
 
-### 1. 산술연산
+IMPLEMENT_DYNCREATE(CImageProcessingDoc, CDocument)
 
-- 리소스 뷰
+BEGIN_MESSAGE_MAP(CImageProcessingDoc, CDocument)
+	ON_COMMAND(ID_SUM_CONSTANT, &CImageProcessingDoc::OnSumConstant)
+	ON_COMMAND(ID_MUL_CONSTANT, &CImageProcessingDoc::OnMulConstant)
+	ON_COMMAND(ID_DIV_CONSTANT, &CImageProcessingDoc::OnDivConstant)
+	ON_COMMAND(ID_AND_OPERATE, &CImageProcessingDoc::OnAndOperate)
+	ON_COMMAND(ID_OR_OPERATE, &CImageProcessingDoc::OnOrOperate)
+	ON_COMMAND(ID_XOR_OPERATE, &CImageProcessingDoc::OnXorOperate)
+	ON_COMMAND(ID_NEGA_TRANSFORM, &CImageProcessingDoc::OnNegaTransform)
+	ON_COMMAND(ID_GAMMA_CORRECTION, &CImageProcessingDoc::OnGammaCorrection)
+	ON_COMMAND(ID_BINARIZATION, &CImageProcessingDoc::OnBinarization)
+	ON_COMMAND(ID_STRESS_TRANSFORM, &CImageProcessingDoc::OnStressTransform)
+	ON_COMMAND(ID_HISTO_STRETCH, &CImageProcessingDoc::OnHistoStretch)
+	ON_COMMAND(ID_END_IN_SEARCH, &CImageProcessingDoc::OnEndInSearch)
+	ON_COMMAND(ID_HISTOGRAM, &CImageProcessingDoc::OnHistogram)
+	ON_COMMAND(ID_HISTO_EQUAL, &CImageProcessingDoc::OnHistoEqual)
+	ON_COMMAND(ID_HISTO_SPEC, &CImageProcessingDoc::OnHistoSpec)
+END_MESSAGE_MAP()
 
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_산술연산 버튼.png" >
+
+// CImageProcessingDoc 생성/소멸
+
+CImageProcessingDoc::CImageProcessingDoc() noexcept
+{
+	// TODO: 여기에 일회성 생성 코드를 추가합니다.
+
+}
+
+CImageProcessingDoc::~CImageProcessingDoc()
+{
+}
+
+BOOL CImageProcessingDoc::OnNewDocument()
+{
+	if (!CDocument::OnNewDocument())
+		return FALSE;
+
+	// TODO: 여기에 재초기화 코드를 추가합니다.
+	// SDI 문서는 이 문서를 다시 사용합니다.
+
+	return TRUE;
+}
 
 
 
-#### 1) 덧셈 연산
 
-- function
+// CImageProcessingDoc serialization
 
-```c++
+void CImageProcessingDoc::Serialize(CArchive& ar)
+{
+	if (ar.IsStoring())
+	{
+		// TODO: 여기에 저장 코드를 추가합니다.
+	}
+	else
+	{
+		// TODO: 여기에 로딩 코드를 추가합니다.
+	}
+}
+
+#ifdef SHARED_HANDLERS
+
+// 축소판 그림을 지원합니다.
+void CImageProcessingDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
+{
+	// 문서의 데이터를 그리려면 이 코드를 수정하십시오.
+	dc.FillSolidRect(lprcBounds, RGB(255, 255, 255));
+
+	CString strText = _T("TODO: implement thumbnail drawing here");
+	LOGFONT lf;
+
+	CFont* pDefaultGUIFont = CFont::FromHandle((HFONT) GetStockObject(DEFAULT_GUI_FONT));
+	pDefaultGUIFont->GetLogFont(&lf);
+	lf.lfHeight = 36;
+
+	CFont fontDraw;
+	fontDraw.CreateFontIndirect(&lf);
+
+	CFont* pOldFont = dc.SelectObject(&fontDraw);
+	dc.DrawText(strText, lprcBounds, DT_CENTER | DT_WORDBREAK);
+	dc.SelectObject(pOldFont);
+}
+
+// 검색 처리기를 지원합니다.
+void CImageProcessingDoc::InitializeSearchContent()
+{
+	CString strSearchContent;
+	// 문서의 데이터에서 검색 콘텐츠를 설정합니다.
+	// 콘텐츠 부분은 ";"로 구분되어야 합니다.
+
+	// 예: strSearchContent = _T("point;rectangle;circle;ole object;");
+	SetSearchContent(strSearchContent);
+}
+
+void CImageProcessingDoc::SetSearchContent(const CString& value)
+{
+	if (value.IsEmpty())
+	{
+		RemoveChunk(PKEY_Search_Contents.fmtid, PKEY_Search_Contents.pid);
+	}
+	else
+	{
+		CMFCFilterChunkValueImpl *pChunk = nullptr;
+		ATLTRY(pChunk = new CMFCFilterChunkValueImpl);
+		if (pChunk != nullptr)
+		{
+			pChunk->SetTextValue(PKEY_Search_Contents, value, CHUNK_TEXT);
+			SetChunkValue(pChunk);
+		}
+	}
+}
+
+#endif // SHARED_HANDLERS
+
+// CImageProcessingDoc 진단
+
+#ifdef _DEBUG
+void CImageProcessingDoc::AssertValid() const
+{
+	CDocument::AssertValid();
+}
+
+void CImageProcessingDoc::Dump(CDumpContext& dc) const
+{
+	CDocument::Dump(dc);
+}
+#endif //_DEBUG
+
+
+// CImageProcessingDoc 명령
+
+
+BOOL CImageProcessingDoc::OnOpenDocument(LPCTSTR lpszPathName)
+{
+	if (!CDocument::OnOpenDocument(lpszPathName))
+		return FALSE;
+
+	CFile File; // 파일 객체 선언
+
+	File.Open(lpszPathName, CFile::modeRead | CFile::typeBinary);
+	// 파일 열기 대화상자에서 선택한 파일을 지정하고 읽기 모드 선택
+
+	// 이 책에서는 영상의 크기 256*256, 512*512, 640*480만을 사용한다.
+	if (File.GetLength() == 256 * 256) { // RAW 파일의 크기 결정
+
+		m_height = 256;
+		m_width = 256;
+	}
+	else if (File.GetLength() == 512 * 512) { // RAW 파일의 크기 결정
+		m_height = 512;
+		m_width = 512;
+	}
+	else if (File.GetLength() == 640 * 480) { // RAW 파일의 크기 결정
+		m_height = 480;
+		m_width = 640;
+	}
+	else {
+		AfxMessageBox(_T("Not Support Image Size")); // 해당 크기가 없는 경우
+		return 0;
+	}
+	m_size = m_width * m_height; // 영상의 크기 계산
+
+	m_InputImage = new unsigned char[m_size];
+	// 입력 영상의 크기에 맞는 메모리 할당
+
+	for (int i = 0; i < m_size; i++)
+		m_InputImage[i] = 255; // 초기화
+	File.Read(m_InputImage, m_size); // 입력 영상 파일 읽기
+	File.Close(); // 파일 닫기
+
+	return TRUE;
+}
+
+
+BOOL CImageProcessingDoc::OnSaveDocument(LPCTSTR lpszPathName)
+{
+	CFile File; // 파일 객체 선언
+	CFileDialog SaveDlg(FALSE, L"raw", NULL, OFN_HIDEREADONLY);
+	// raw 파일을 다른 이름으로 저장하기를 위한 대화상자 객체 선언
+
+	if (SaveDlg.DoModal() == IDOK) {
+		// DoModal 멤버 함수에서 저장하기 수행
+		File.Open(SaveDlg.GetPathName(), CFile::modeCreate |
+			CFile::modeWrite);
+		// 파일 열기
+		File.Write(m_InputImage, m_size); // 파일 쓰기
+		File.Close(); // 파일 닫기
+	}
+
+	return TRUE;
+
+}
+
+void CImageProcessingDoc::OnDownSampling()
+{
+	int i, j;
+	CDownSampleDlg dlg;
+	if (dlg.DoModal() == IDOK) // 대화상자의 활성화 여부
+	{
+		m_Re_height = m_height / dlg.m_DownSampleRate;
+		// 축소 영상의 세로 길이를 계산
+		m_Re_width = m_width / dlg.m_DownSampleRate;
+		// 축소 영상의 가로 길이를 계산
+		m_Re_size = m_Re_height * m_Re_width;
+		// 축소 영상의 크기를 계산
+
+		m_OutputImage = new unsigned char[m_Re_size];
+		// 축소 영상을 위한 메모리 할당
+
+		for (i = 0; i < m_Re_height; i++) {
+			for (j = 0; j < m_Re_width; j++) {
+				m_OutputImage[i*m_Re_width + j]
+					= m_InputImage[(i*dlg.m_DownSampleRate*m_width) + dlg.m_DownSampleRate*j];
+				// 축소 영상을 생성
+			}
+		}
+	}
+}
+
+
+void CImageProcessingDoc::OnUpSampling()
+{
+	int i, j;
+
+	CUpSampleDlg dlg;
+	if (dlg.DoModal() == IDOK) { // DoModal 대화상자의 활성화 여부
+		m_Re_height = m_height * dlg.m_UpSampleRate;
+		// 확대 영상의 세로 길이 계산
+		m_Re_width = m_width * dlg.m_UpSampleRate;
+		// 확대 영상의 가로 길이 계산
+		m_Re_size = m_Re_height * m_Re_width;
+		// 확대 영상의 크기 계산
+		m_OutputImage = new unsigned char[m_Re_size];
+		// 확대 영상을 위한 메모리 할당
+
+		for (i = 0; i < m_Re_size; i++)
+			m_OutputImage[i] = 0; // 초기화
+
+		/*
+		for (i = 0; i < m_height; i++) {
+			for (j = 0; j < m_width; j++) {
+				m_OutputImage[i*dlg.m_UpSampleRate*m_Re_width +	dlg.m_UpSampleRate*j] = m_InputImage[i*m_width + j];
+			} // 재배치하여 영상 확대
+		}
+		*/
+		for (i = 0; i < m_height; i++) {
+			for (j = 0; j < m_width; j++) {
+				for (int k = 0; k < dlg.m_UpSampleRate; k++) {
+					for (int n = 0; n < dlg.m_UpSampleRate; n++) {
+						m_OutputImage[i*dlg.m_UpSampleRate*m_Re_width + k*m_Re_width + dlg.m_UpSampleRate*j +n] = m_InputImage[i*m_width + j];
+					}
+				}
+			} // 재배치하여 영상 확대
+		}
+
+
+
+
+
+	}
+
+}
+
+
+void CImageProcessingDoc::OnQuantization()
+{
+	CQuantizationDlg dlg;
+	if (dlg.DoModal() == IDOK)
+		// 양자화 비트 수를 결정하는 대화상자의 활성화 여부
+	{
+		int i, j, value, LEVEL;
+		double HIGH, *TEMP;
+
+		m_Re_height = m_height;
+		m_Re_width = m_width;
+		m_Re_size = m_Re_height * m_Re_width;
+
+		m_OutputImage = new unsigned char[m_Re_size];
+		// 양자화 처리된 영상을 출력하기 위한 메모리 할당
+
+		TEMP = new double[m_size];
+		// 입력 영상 크기(m_size)와 동일한 메모리 할당
+
+		LEVEL = 256; // 입력 영상의 양자화 단계(28=256)
+		HIGH = 256.;
+
+		value = (int)pow(2, dlg.m_QuantBit);
+		// 양자화 단계 결정(예 : 24=16)
+
+		for (i = 0; i < m_size; i++) {
+			for (j = 0; j < value; j++) {
+				if (m_InputImage[i] >= (LEVEL / value)*j &&
+					m_InputImage[i] < (LEVEL / value)*(j + 1)) {
+					TEMP[i] = (double)(HIGH / value)*j; // 양자화 수행
+				}
+			}
+		}
+		for (i = 0; i < m_size; i++) {
+			m_OutputImage[i] = (unsigned char)TEMP[i];
+			// 결과 영상 생성
+		}
+	}
+
+}
+
+
 void CImageProcessingDoc::OnSumConstant()
 {
+
 	CConstantDlg dlg; // 상수 값을 입력받는 대화상자
 
 	int i;
+
 	m_Re_height = m_height;
 	m_Re_width = m_width;
 	m_Re_size = m_Re_height * m_Re_width;
+
 	m_OutputImage = new unsigned char[m_Re_size];
 
 	if (dlg.DoModal() == IDOK) {
@@ -59,30 +357,21 @@ void CImageProcessingDoc::OnSumConstant()
 			// 상수 값과 화소 값과의 덧셈
 		}
 	}
+
 }
-```
 
 
 
-- 실행 결과 (+50)
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_산술연산 덧셈.png" width="90%">
-
-
-
-#### 2) 뺄셈 연산
-
-- function
-
-```c++
 void CImageProcessingDoc::OnSubConstant()
 {
 	CConstantDlg dlg;
 
 	int i;
+
 	m_Re_height = m_height;
 	m_Re_width = m_width;
 	m_Re_size = m_Re_height * m_Re_width;
+
 	m_OutputImage = new unsigned char[m_Re_size];
 
 	if (dlg.DoModal() == IDOK) {
@@ -94,30 +383,20 @@ void CImageProcessingDoc::OnSubConstant()
 			// 상수 값과 화소 값과의 뺄셈
 		}
 	}
+
 }
-```
 
 
-
-- 실행 결과(-50)
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_산술연산 뺄셈.png" width="90%">
-
-
-
-#### 3) 곱셈 연산
-
-- function
-
-```c++
 void CImageProcessingDoc::OnMulConstant()
 {
 	CConstantDlg dlg;
 
 	int i;
+
 	m_Re_height = m_height;
 	m_Re_width = m_width;
 	m_Re_size = m_Re_height * m_Re_width;
+
 	m_OutputImage = new unsigned char[m_Re_size];
 
 	if (dlg.DoModal() == IDOK) {
@@ -134,30 +413,20 @@ void CImageProcessingDoc::OnMulConstant()
 			// 상수 값과 화소 값 곱셈
 		}
 	}
+
 }
-```
 
 
-
-- 실행 결과(*2)
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_산술연산 곱셈.png" width="90%">
-
-
-
-#### 4) 나눗셈 연산
-
-- function
-
-```c++
 void CImageProcessingDoc::OnDivConstant()
 {
 	CConstantDlg dlg;
 
 	int i;
+
 	m_Re_height = m_height;
 	m_Re_width = m_width;
 	m_Re_size = m_Re_height * m_Re_width;
+
 	m_OutputImage = new unsigned char[m_Re_size];
 
 	if (dlg.DoModal() == IDOK) {
@@ -174,32 +443,10 @@ void CImageProcessingDoc::OnDivConstant()
 			// 상수 값과 화소 값 나눗셈
 		}
 	}
+
 }
-```
 
 
-
-- 실행 결과(/2)
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_산술연산 나눗셈.png" width="90%">
-
-
-
----
-
-### 2. 논리연산
-
-- 리소스 뷰
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_논리연산 버튼.png" >
-
-
-
-#### 1) AND 연산
-
-- function
-
-```c++
 void CImageProcessingDoc::OnAndOperate()
 {
 	CConstantDlg dlg;
@@ -208,6 +455,7 @@ void CImageProcessingDoc::OnAndOperate()
 	m_Re_height = m_height;
 	m_Re_width = m_width;
 	m_Re_size = m_Re_height * m_Re_width;
+
 	m_OutputImage = new unsigned char[m_Re_size];
 
 	if (dlg.DoModal() == IDOK) {
@@ -227,22 +475,10 @@ void CImageProcessingDoc::OnAndOperate()
 			}
 		}
 	}
+
 }
-```
 
 
-
-- 실행 결과(상수값: 128)
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_논리연산 AND 실행결과.png" width="90%">
-
-
-
-#### 2) OR 연산
-
-- function
-
-```c++
 void CImageProcessingDoc::OnOrOperate()
 {
 	CConstantDlg dlg;
@@ -251,6 +487,7 @@ void CImageProcessingDoc::OnOrOperate()
 	m_Re_height = m_height;
 	m_Re_width = m_width;
 	m_Re_size = m_Re_height * m_Re_width;
+
 	m_OutputImage = new unsigned char[m_Re_size];
 
 	if (dlg.DoModal() == IDOK) {
@@ -268,22 +505,10 @@ void CImageProcessingDoc::OnOrOperate()
 			}
 		}
 	}
+
 }
-```
 
 
-
-- 실행 결과(상수값: 128)
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_논리연산 OR 실행결과.png" width="90%">
-
-
-
-#### 3) XOR 연산
-
-- function
-
-```c++
 void CImageProcessingDoc::OnXorOperate()
 {
 	CConstantDlg dlg;
@@ -310,32 +535,10 @@ void CImageProcessingDoc::OnXorOperate()
 			}
 		}
 	}
+
 }
-```
 
 
-
-- 실행 결과(상수값: 128)
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_논리연산 XOR 실행결과.png" width="90%">
-
-
-
----
-
-### 3. 기타
-
-- 리소스 뷰
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_기타 버튼.png">
-
-
-
-#### 1) 영상 반전 변환
-
-- function
-
-```c++
 void CImageProcessingDoc::OnNegaTransform()
 {
 	int i;
@@ -348,24 +551,14 @@ void CImageProcessingDoc::OnNegaTransform()
 
 	for (i = 0; i < m_size; i++)
 		m_OutputImage[i] = 255 - m_InputImage[i]; // 영상 반전을 수행
+
 }
-```
-
-- 실행 결과
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_기타 영상반전변환 실행결과.png" width="90%">
 
 
-
-#### 2) 감마 보정
-
-- function
-
-```c++
 void CImageProcessingDoc::OnGammaCorrection()
 {
 	CConstantDlg dlg;
-    
+
 	int i;
 	double temp;
 
@@ -387,26 +580,14 @@ void CImageProcessingDoc::OnGammaCorrection()
 				m_OutputImage[i] = (unsigned char)temp;
 		}
 	}
+
 }
-```
 
 
-
-- 실행 결과(감마값: 0.85)
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_기타 감마보정 실행결과.png" width="90%">
-
-
-
-#### 3) 영상 이진화
-
-- function
-
-```c++
 void CImageProcessingDoc::OnBinarization()
 {
 	CConstantDlg dlg;
-    
+
 	int i;
 
 	m_Re_height = m_height;
@@ -423,22 +604,10 @@ void CImageProcessingDoc::OnBinarization()
 				m_OutputImage[i] = 0; // 임계 값보다 작으면 0 출력
 		}
 	}
+
 }
-```
 
 
-
-- 실행 결과(경계값: 130)
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_기타 영상이진화 실행결과.png" width="90%">
-
-
-
-#### 4) 범위 강조 변환
-
-- function
-
-```c++
 void CImageProcessingDoc::OnStressTransform()
 {
 	CStressTransformDlg dlg;
@@ -461,32 +630,10 @@ void CImageProcessingDoc::OnStressTransform()
 				m_OutputImage[i] = m_InputImage[i];
 		}
 	}
+
 }
-```
 
 
-
-- 실행 결과(100-150)
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_기타 범위강조변환 실행결과.png" width="90%">
-
-
-
----
-
-### 4. 히스토그램
-
-- 리소스 뷰
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_히스토그램 버튼.png" >
-
-
-
-#### 1) 기본 명암 대비 스트레칭
-
-- function
-
-```c++
 void CImageProcessingDoc::OnHistoStretch()
 {
 	int i;
@@ -522,21 +669,8 @@ void CImageProcessingDoc::OnHistoStretch()
 			MIN)*HIGH / (MAX - MIN));
 
 }
-```
 
 
-
-- 실행 결과
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_기본 명암 대비 스트레칭.png.png" width="90%">
-
-
-
-#### 2) 앤드-인 탐색
-
-- function
-
-```c++
 void CImageProcessingDoc::OnEndInSearch()
 {
 	int i;
@@ -578,20 +712,11 @@ void CImageProcessingDoc::OnEndInSearch()
 			m_OutputImage[i] = (unsigned char)((m_InputImage[i] -
 				MIN)*HIGH / (MAX - MIN));
 	}
+
+
 }
-```
-
-- 실행 결과
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_앤드인탐색.png" width="90%">
 
 
-
-#### 3) 히스토그램
-
-- function
-
-```c++
 void CImageProcessingDoc::OnHistogram()
 {
 	// 히스토그램의 값은 0~255
@@ -668,21 +793,8 @@ void CImageProcessingDoc::OnHistogram()
 	m_Re_size = m_Re_height * m_Re_width;
 
 }
-```
 
 
-
-- 실행 결과
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_히스토그램 실행결과.png" width="90%">
-
-
-
-#### 4) 히스토그램 평활화
-
-- function
-
-```c++
 void CImageProcessingDoc::OnHistoEqual()
 {
 	int i, value;
@@ -720,21 +832,8 @@ void CImageProcessingDoc::OnHistoEqual()
 		m_OutputImage[i] = (unsigned char)(m_Sum_Of_HIST[Temp] * HIGH / m_size);
 	}
 }
-```
 
 
-
-- 실행 결과
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_히스토그램 평활화 실행결과.png" width="90%">
-
-
-
-#### 5) 히스토그램 명세화
-
-- function
-
-```c++
 void CImageProcessingDoc::OnHistoSpec()
 {
 	int i, value, Dvalue, top, bottom, DADD;
@@ -835,12 +934,7 @@ void CImageProcessingDoc::OnHistoSpec()
 		DADD = (int)m_Org_Temp[i];
 		m_OutputImage[i] = m_TABLE[DADD];
 	}
+
+
+
 }
-```
-
-
-
-- 실행 결과
-
-<img src = "https://github.com/sanga327/KSA/blob/main/Module05. 영상처리/img/02_히스토그램 명세화 실행결과.png" width="90%">
-
