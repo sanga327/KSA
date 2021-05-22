@@ -22,4 +22,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	int m_DownSampleRate;
+	//afx_msg void OnDownSampling();
+	//afx_msg void OnUpSampling();
 };

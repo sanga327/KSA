@@ -48,6 +48,44 @@ BEGIN_MESSAGE_MAP(CImageProcessingView, CView)
 	ON_COMMAND(ID_HISTOGRAM, &CImageProcessingView::OnHistogram)
 	ON_COMMAND(ID_HISTO_EQUAL, &CImageProcessingView::OnHistoEqual)
 	ON_COMMAND(ID_HISTO_SPEC, &CImageProcessingView::OnHistoSpec)
+	ON_COMMAND(ID_EMBOSSING, &CImageProcessingView::OnEmbossing)
+	ON_COMMAND(ID_BLURR, &CImageProcessingView::OnBlurr)
+	ON_COMMAND(ID_GAUSSIAN_FILTER, &CImageProcessingView::OnGaussianFilter)
+	ON_COMMAND(ID_SHARPENING, &CImageProcessingView::OnSharpening)
+	ON_COMMAND(ID_HPF_SHARP, &CImageProcessingView::OnHpfSharp)
+	ON_COMMAND(ID_LPF_SHARP, &CImageProcessingView::OnLpfSharp)
+	ON_COMMAND(ID_DIFF_OPERATOR_HOR, &CImageProcessingView::OnDiffOperatorHor)
+	ON_COMMAND(ID_HOMOGEN_OPERATOR, &CImageProcessingView::OnHomogenOperator)
+	ON_COMMAND(ID_LAPLACIAN, &CImageProcessingView::OnLaplacian)
+	ON_COMMAND(ID_BILINEAR, &CImageProcessingView::OnBilinear)
+	ON_COMMAND(ID_NEAREST, &CImageProcessingView::OnNearest)
+	ON_COMMAND(ID_MEAN_SUB, &CImageProcessingView::OnMeanSub)
+	ON_COMMAND(ID_MEDIAN_SUB, &CImageProcessingView::OnMedianSub)
+	ON_COMMAND(ID_TRANSLATION, &CImageProcessingView::OnTranslation)
+	ON_COMMAND(ID_MIRROR_HOR, &CImageProcessingView::OnMirrorHor)
+	ON_COMMAND(ID_MIRROR_VER, &CImageProcessingView::OnMirrorVer)
+	ON_COMMAND(ID_ROTATION, &CImageProcessingView::OnRotation)
+	ON_COMMAND(ID_FRAME_SUM, &CImageProcessingView::OnFrameSum)
+	ON_COMMAND(ID_FRAME_SUB, &CImageProcessingView::OnFrameSub)
+	ON_COMMAND(ID_FRAME_MUL, &CImageProcessingView::OnFrameMul)
+	ON_COMMAND(ID_FRAME_DIV, &CImageProcessingView::OnFrameDiv)
+	ON_COMMAND(ID_FRAME_AND, &CImageProcessingView::OnFrameAnd)
+	ON_COMMAND(ID_FRAME_OR, &CImageProcessingView::OnFrameOr)
+	ON_COMMAND(ID_FRAME_COMB, &CImageProcessingView::OnFrameComb)
+	ON_COMMAND(ID_BINARY_EROSION, &CImageProcessingView::OnBinaryErosion)
+	ON_COMMAND(ID_BINARY_DILATION, &CImageProcessingView::OnBinaryDilation)
+	ON_COMMAND(ID_GRAY_EROSION, &CImageProcessingView::OnGrayErosion)
+	ON_COMMAND(ID_GRAY_DILATION, &CImageProcessingView::OnGrayDilation)
+	ON_COMMAND(ID_LOW_PASS_FILTER, &CImageProcessingView::OnLowPassFilter)
+	ON_COMMAND(ID_HIGH_PASS_FILTER, &CImageProcessingView::OnHighPassFilter)
+	ON_COMMAND(ID_MEAN_FILTER, &CImageProcessingView::OnMeanFilter)
+	ON_COMMAND(ID_MEDIAN_FILTER, &CImageProcessingView::OnMedianFilter)
+	ON_COMMAND(ID_MAX_FILTER, &CImageProcessingView::OnMaxFilter)
+	ON_COMMAND(ID_MIN_FILTER, &CImageProcessingView::OnMinFilter)
+	ON_COMMAND(ID_FFT_2D, &CImageProcessingView::OnFft2d)
+	ON_COMMAND(ID_IFFT_2D, &CImageProcessingView::OnIfft2d)
+	ON_COMMAND(ID_LPF_FREQUENCY, &CImageProcessingView::OnLpfFrequency)
+	ON_COMMAND(ID_HPF_FREQUENCY, &CImageProcessingView::OnHpfFrequency)
 END_MESSAGE_MAP()
 
 // CImageProcessingView 생성/소멸
@@ -394,6 +432,463 @@ void CImageProcessingView::OnHistoSpec()
 	ASSERT_VALID(pDoc);
 
 	pDoc->OnHistoSpec();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnEmbossing()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnEmbossing();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnBlurr()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnBlurr();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnGaussianFilter()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnGaussianFilter();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnSharpening()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnSharpening();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnHpfSharp()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnHpfSharp();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnLpfSharp()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnLpfSharp();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnDiffOperatorHor()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnDiffOperatorHor();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnHomogenOperator()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnHomogenOperator();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnLaplacian()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnLaplacian();
+
+	Invalidate(TRUE);
+
+}
+
+void CImageProcessingView::OnNearest()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnNearest();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnBilinear()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnBilinear();
+
+	Invalidate(TRUE);
+
+}
+
+
+
+void CImageProcessingView::OnMedianSub()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnMedianSub();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnMeanSub()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnMeanSub();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnTranslation()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnTranslation();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnMirrorHor()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnMirrorHor();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnMirrorVer()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnMirrorVer();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnRotation()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnRotation();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnFrameSum()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnFrameSum();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnFrameSub()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnFrameSub();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnFrameMul()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnFrameMul();
+
+	Invalidate(TRUE);
+
+
+}
+
+
+void CImageProcessingView::OnFrameDiv()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnFrameDiv();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnFrameAnd()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnFrameAnd();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnFrameOr()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnFrameOr();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnFrameComb()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnFrameComb();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnBinaryErosion()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnBinaryErosion();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnBinaryDilation()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnBinaryDilation();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnGrayErosion()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnGrayErosion();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnGrayDilation()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnGrayDilation();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnLowPassFilter()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnLowPassFilter();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnHighPassFilter()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnHighPassFilter();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnMeanFilter()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnMeanFilter();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnMedianFilter()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnMedianFilter();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnMaxFilter()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnMaxFilter();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnMinFilter()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnMinFilter();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnFft2d()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnFft2d();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnIfft2d()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnIfft2d();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnLpfFrequency()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnLpfFrequency();
+
+	Invalidate(TRUE);
+
+}
+
+
+void CImageProcessingView::OnHpfFrequency()
+{
+	CImageProcessingDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+
+	pDoc->OnHpfFrequency();
 
 	Invalidate(TRUE);
 

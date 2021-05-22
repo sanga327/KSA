@@ -31,7 +31,21 @@ void CDownSampleDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CDownSampleDlg, CDialog)
+//	ON_COMMAND(ID_DOWN_SAMPLING, &CDownSampleDlg::OnDownSampling)
+//	ON_COMMAND(ID_UP_SAMPLING, &CDownSampleDlg::OnUpSampling)
 END_MESSAGE_MAP()
 
 
 // CDownSampleDlg 메시지 처리기
+
+
+//void CDownSampleDlg::OnDownSampling()
+//{
+//	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+//}
+
+
+//void CDownSampleDlg::OnUpSampling()
+//{
+//	// TODO: 여기에 명령 처리기 코드를 추가합니다.
+//}

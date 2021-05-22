@@ -62,6 +62,7 @@ public:
 	double m_Sum_Of_HIST[256];
 	unsigned char m_Scale_HIST[256];
 
+
 	void OnUpSampling();
 	void OnQuantization();
 	void OnSumConstant();
@@ -80,4 +81,68 @@ public:
 	void OnHistogram();
 	void OnHistoEqual();
 	void OnHistoSpec();
+	void OnEmbossing();
+	double** OnMaskProcess(unsigned char *Target, double Mask[3][3]);
+	double** OnScale(double **Target, int height, int width);
+	double** Image2DMem(int height, int width);
+	double** m_tempImage;
+
+	void OnBlurr();
+	void OnGaussianFilter();
+	void OnSharpening();
+	void OnHpfSharp();
+	void OnLpfSharp();
+	void OnDiffOperatorHor();
+	void OnHomogenOperator();
+	double DoubleABS(double X);
+	void OnLaplacian();
+	
+	void OnBilinear();
+	void OnNearest();
+	void OnMeanSub();
+	void OnMedianSub();
+	void OnBubleSort(double * A, int MAX);
+	void OnSwap(double * a, double * b);
+	void OnTranslation();
+	void OnMirrorHor();
+	void OnMirrorVer();
+	void OnRotation();
+	void OnFrameSum();
+	void OnFrameSub();
+	void OnFrameMul();
+	void OnFrameDiv();
+	void OnFrameAnd();
+	void OnFrameOr();
+	void OnFrameComb();
+	void OnBinaryErosion();
+	void OnBinaryDilation();
+	void OnGrayErosion();
+	void OnGrayDilation();
+
+	void OnLowPassFilter();
+	void OnHighPassFilter();
+	void OnMeanFilter();
+	void OnMedianFilter();
+	void OnMaxFilter();
+	void OnMinFilter();
+
+	void OnFft2d();
+	void OnIfft2d();
+	void OnLpfFrequency();
+	void OnHpfFrequency();
+
+
+	// onfft2d에서 사용하는 complex 구조체 선언
+	struct Complex {
+		double Re; // 실수를 위한 변수
+		double Im; // 허수를 위한 변수
+	};
+	Complex **m_FFT;
+	Complex **m_IFFT;
+
+	void OnFft1d(Complex * X, int N, int Log2N);
+	void OnShuffle(Complex * X, int N, int Log2N);
+	void OnButterfly(Complex * X, int N, int Log2N, int mode);
+	int OnReverseBitOrder(int index, int Log2N);
+	void OnIfft1d(Complex * X, int N, int Log2N);
 };
