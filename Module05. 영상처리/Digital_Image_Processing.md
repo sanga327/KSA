@@ -14,20 +14,20 @@
 
 ### [목차]
 
-#### 1. 디지털 영상처리
+#### 1. [디지털 영상처리](https://github.com/sanga327/KSA/tree/main/Module05.%20%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC/document/01_%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC)
 
 - MFC 
 
 
 
-#### 2. 화소 점 처리
+#### 2. [화소 점 처리](https://github.com/sanga327/KSA/tree/main/Module05.%20%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC/document/02_%ED%99%94%EC%86%8C%EC%A0%90%EC%B2%98%EB%A6%AC)
 
 - 산술연산과 논리연산을 통한 히스토그램 이동
 - 히스토그램 스트레칭 | 평활화 | 명세화
 
 
 
-#### 3. 화소 영역 처리
+#### 3. [화소 영역 처리](https://github.com/sanga327/KSA/tree/main/Module05.%20%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC/document/03_%ED%99%94%EC%86%8C%EC%98%81%EC%97%AD%EC%B2%98%EB%A6%AC)
 
 - 회선 처리
 - 블러링 | 샤프닝
