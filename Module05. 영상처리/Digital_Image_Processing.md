@@ -35,7 +35,7 @@
 
 
 
-#### 4. 기하학적 변환
+#### 4. [기하학적 변환](https://github.com/sanga327/KSA/tree/main/Module05.%20%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC/document/04_%EA%B8%B0%ED%95%98%ED%95%99%EC%A0%81%EB%B3%80%ED%99%98)
 
 - 보간법
 - 영상의 확대와 축소 변환
