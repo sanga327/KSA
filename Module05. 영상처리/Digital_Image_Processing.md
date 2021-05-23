@@ -42,7 +42,10 @@
 
 
 
-#### 5. 프레임 처리
+#### 5. [프레임 처리](https://github.com/sanga327/KSA/tree/main/Module05.%20%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC/document/05_%ED%94%84%EB%A0%88%EC%9E%84%EC%B2%98%EB%A6%AC)
+
+- 프레임 결합 처리
+- 프레임 합성 처리
 
 
 
