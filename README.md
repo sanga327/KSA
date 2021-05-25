@@ -13,7 +13,7 @@
 - Tool:  Anaconda | Jupyter notebook
 - Library: Pandas | Numpy | Matplotlib | Seaborn
 - Machine Learning Library: Sklearn
-- Deep Learning Library: Keras | Tensorflow
+- Deep Learning Framework: Keras | Tensorflow
 
 
 ---
