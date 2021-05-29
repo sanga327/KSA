@@ -54,9 +54,14 @@
 
 
 
+#### 7. [필터링](https://github.com/sanga327/KSA/tree/main/Module05.%20%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC/Image_Processing/Document/07_%ED%95%84%ED%84%B0%EB%A7%81)
 
-#### 7. 필터링
 
 
-#### 8. 디지털 영상의 압축
 
+#### 8. [영상 변환](https://github.com/sanga327/KSA/tree/main/Module05.%20%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC/Image_Processing/Document/08_%EC%98%81%EC%83%81%EB%B3%80%ED%99%98)
+
+- 주파수 변환
+  - 푸리에 변환 
+
+- 주파수 영역에서의 필터링
