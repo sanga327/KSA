@@ -19,7 +19,7 @@
 
 
 
-### 5. [Multi Class Classification](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/MULTI_CLASS/MULTI_CLASS.md)
+### 5. [Multi Class Classification](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/MULTI_CLASS/Multi_Class_Classification.md)
 
 
 
