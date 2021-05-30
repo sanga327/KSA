@@ -96,7 +96,8 @@
 - CNN | DNN | MNIST | CIFAR-10 CNN
 - PyCharm
 
-<br>
+<br>   
+
 **[모듈 7] TOPCIT**  
 (2021.05.24 - 2021.05.28)
 
