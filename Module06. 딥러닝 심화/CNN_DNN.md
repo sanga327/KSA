@@ -1,5 +1,94 @@
 # [모듈 6] 딥러닝 심화
 
+
+### [실습]
+
+#### 1. [손글씨 DB (MNIST)](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/MNIST)
+
+- CNN | DNN
+
+####  2. [IRIS](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/IRIS)
+
+- DNN
+
+#### 3. [CIFAR-10](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/CIFAR-10)
+
+- CNN | DNN
+
+#### 4. [Dog & Cat Classification](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/Dog_Cat_Classification)
+
+
+
+#### 5. [Multi Class Classification](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/Multi_Class_Classification)
+
+
+
+#### 6. [CNN Architecture](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/CNN_Architecture)
+
+<br>
+
+---
+
+### 환경구축
+
+- CPU 버전(tensorflow 2.1 keras 2.2.4)
+  - conda install tensorflow=2.1
+  - pip install keras==2.2.4
+- GPU 버전(tensorflow-gpu 2.1  keras 2.2.4) GPU 2000 series 이하
+  - conda install -c anaconda cudatooklit=10.1 keras-gpu=2.2.4
+
+- Jupyter notebook
+
+  - pip install ipykernel
+  - Python -m ipykernel install --user --name [가상환경명] --display-name “[표시할 이름]”
+
+  |                | **주피터노트북**(jupyter  **notebook)** | **파이참**(Pycharm) |
+  | -------------- | --------------------------------------- | ------------------- |
+  | 디버깅         | X                                       | O                   |
+  | 파이썬(python) | O                                       | O                   |
+  | Tensorflow     | O                                       | O                   |
+  | Keras          | O                                       | O                   |
+  | 페이지 사용    | 메모, 코드, 주석                        | Only 코드,  주석    |
+
+<br>
+
+### keras를 이용한 딥러닝 개발
+
+- 문제 유형별 손실 함수 및 출력층의 활성화 함수
+
+  | **문제 유형**             | **출력층의** **활성화 함수** | **손실 함수**                  |
+  | ------------------------- | ---------------------------- | ------------------------------ |
+  | 이진 분류                 | Sigmoid                      | binary_crossentropy            |
+  | 다중 분류                 | Softmax                      | categorical_crossentropy       |
+  | 임의 값에 대한 회귀       | -                            | MSE                            |
+  | 0과 1사이  값에 대한 회귀 | Sigmoid                      | MSE  또는  binary_crossentropy |
+
+<br>
+
+---
+
+### CNN 개요 및 구현
+
+#### - 작업 순서
+
+1. 이미지 불러오기
+2. 모델 설계
+3. 모델 컴파일 (loss 함수 설정, optimizer 설정)
+4. 학습
+5. 학습 완료 된 모델 성능 평가 (정확도, loss값)
+
+<br>
+
+####  - keras를 이용한 네트워크 구현 방식
+
+- Sequential 클래스
+  - 층(layer)를 순차적으로만 쌓은 네트워크에 적합
+- 함수형(Functional) API
+  - 병렬 층이 존재하고 입력 또는 출력이 여러 개인 경우에 적합
+
+<br>
+
+---
 ### 1. CNN
 
 #### CNN 개요 및 구현
@@ -174,91 +263,3 @@
 
 <br>
 
----
-
-# [실습]
-
-#### 1. [손글씨 DB (MNIST)]()
-
-- CNN | DNN
-
-####  2. [IRIS]()
-
-- DNN
-
-#### 3. [CIFAR-10]()
-
-- CNN | DNN
-
-#### 4. [Dog & Cat Classification]()
-
-
-
-#### 5. [Multi Class Classification]()
-
-
-
-#### 6. [CNN Architecture]()
-
-<br>
-
----
-
-### 환경구축
-
-- CPU 버전(tensorflow 2.1 keras 2.2.4)
-  - conda install tensorflow=2.1
-  - pip install keras==2.2.4
-- GPU 버전(tensorflow-gpu 2.1  keras 2.2.4) GPU 2000 series 이하
-  - conda install -c anaconda cudatooklit=10.1 keras-gpu=2.2.4
-
-- Jupyter notebook
-
-  - pip install ipykernel
-  - Python -m ipykernel install --user --name [가상환경명] --display-name “[표시할 이름]”
-
-  |                | **주피터노트북**(jupyter  **notebook)** | **파이참**(Pycharm) |
-  | -------------- | --------------------------------------- | ------------------- |
-  | 디버깅         | X                                       | O                   |
-  | 파이썬(python) | O                                       | O                   |
-  | Tensorflow     | O                                       | O                   |
-  | Keras          | O                                       | O                   |
-  | 페이지 사용    | 메모, 코드, 주석                        | Only 코드,  주석    |
-
-<br>
-
-### keras를 이용한 딥러닝 개발
-
-- 문제 유형별 손실 함수 및 출력층의 활성화 함수
-
-  | **문제 유형**             | **출력층의** **활성화 함수** | **손실 함수**                  |
-  | ------------------------- | ---------------------------- | ------------------------------ |
-  | 이진 분류                 | Sigmoid                      | binary_crossentropy            |
-  | 다중 분류                 | Softmax                      | categorical_crossentropy       |
-  | 임의 값에 대한 회귀       | -                            | MSE                            |
-  | 0과 1사이  값에 대한 회귀 | Sigmoid                      | MSE  또는  binary_crossentropy |
-
-<br>
-
----
-
-### CNN 개요 및 구현
-
-#### - 작업 순서
-
-1. 이미지 불러오기
-2. 모델 설계
-3. 모델 컴파일 (loss 함수 설정, optimizer 설정)
-4. 학습
-5. 학습 완료 된 모델 성능 평가 (정확도, loss값)
-
-<br>
-
-####  - keras를 이용한 네트워크 구현 방식
-
-- Sequential 클래스
-  - 층(layer)를 순차적으로만 쌓은 네트워크에 적합
-- 함수형(Functional) API
-  - 병렬 층이 존재하고 입력 또는 출력이 여러 개인 경우에 적합
-
-<br>
