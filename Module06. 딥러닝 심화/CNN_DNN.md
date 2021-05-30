@@ -1,29 +1,29 @@
 # [모듈 6] 딥러닝 심화
 
 
-### [실습]
+## [실습]
 
-#### 1. [손글씨 DB (MNIST)](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/MNIST)
+### 1. [손글씨 DB (MNIST)](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/MNIST)
 
 - CNN | DNN
 
-####  2. [IRIS](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/IRIS)
+###  2. [IRIS](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/IRIS)
 
 - DNN
 
-#### 3. [CIFAR-10](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/CIFAR-10)
+### 3. [CIFAR-10](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/CIFAR-10)
 
 - CNN | DNN
 
-#### 4. [Dog & Cat Classification](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/Dog_Cat_Classification)
+### 4. [Dog & Cat Classification](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/Dog_Cat_Classification)
 
 
 
-#### 5. [Multi Class Classification](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/Multi_Class_Classification)
+### 5. [Multi Class Classification](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/MULTI_CLASS)
 
 
 
-#### 6. [CNN Architecture](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/CNN_Architecture)
+### 6. [CNN Architecture](https://github.com/sanga327/KSA/tree/main/Module06.%20%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EC%8B%AC%ED%99%94/Document/CNN_Architecture)
 
 <br>
 
