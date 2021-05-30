@@ -4,8 +4,7 @@
 
 - Airplane, car, cat, dog, flower, fruit, motorbike, person 총 8개
 
-![image-20210530162657672](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20210530162657672.png)
-
+<img src = "https://github.com/sanga327/KSA/blob/main/Module06. 딥러닝 심화/Image/image-20210530162657672.png">
 ---
 
 ### 2. 모델링
@@ -46,6 +45,5 @@ def define_model():
 
 model = define_model()
 ```
-
-![image-20210530162612946](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20210530162612946.png)
+<img src = "https://github.com/sanga327/KSA/blob/main/Module06. 딥러닝 심화/Image/image-20210530162612946.png">
 
