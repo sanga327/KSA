@@ -68,3 +68,8 @@
 
 
 #### 9. [웨이블릿 변환](https://github.com/sanga327/KSA/tree/main/Module05.%20%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC/Wavelet_Transform/Document)
+
+---
+
+#### [영상 합성 프로젝트](https://github.com/sanga327/MFC_Project)
+
