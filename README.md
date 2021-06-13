@@ -49,7 +49,7 @@
     - Voting | Stacking | Bagging | Boosting
   - Unsupervised Learning
     - Clustering
-- Machine Learning 프로젝트
+- [Machine Learning 프로젝트](https://github.com/sanga327/ML_Project/Project1_real_estate/document/real_estate.md)
 <br>
 
 
@@ -64,7 +64,7 @@
   - SGD | AdaGrad | Adam
 - MNIST
 - Tensorflow
-- Deep Learning 프로젝트
+- [Deep Learning 프로젝트](https://github.com/sanga327/ML_Project/Project2_wine/document/wine.md)
 
 <br>
 
@@ -72,7 +72,7 @@
 **[모듈 5] 영상처리**  
 (2021.05.11 - 2021.05.14)
 
-- [영상 합성 프로젝트](https://github.com/sanga327/MFC_Project)
+- [영상 합성 프로젝트](https://github.com/sanga327/MFC_Project) (C++)
 - 디지털 영상처리
   - MFC 
 - 화소점처리
@@ -108,7 +108,7 @@
 <br>   
 
 **[모듈 8] 비즈니스 적용 - 딥러닝 CNN**   
-(2021.06.04 - 2021.06.)
+(2021.06.04 - 2021.06.10)
 - Object Detection
   - localization
   - SSD
