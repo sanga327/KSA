@@ -49,7 +49,7 @@
     - Voting | Stacking | Bagging | Boosting
   - Unsupervised Learning
     - Clustering
-- [Machine Learning 프로젝트](https://github.com/sanga327/ML_Project/document/real_estate.md)
+- [Machine Learning 프로젝트](https://github.com/sanga327/ML_Project)
 <br>
 
 
@@ -64,7 +64,7 @@
   - SGD | AdaGrad | Adam
 - MNIST
 - Tensorflow
-- [Deep Learning 프로젝트](https://github.com/sanga327/DL_Project/document/wine.md)
+- [Deep Learning 프로젝트](https://github.com/sanga327/DL_Project)
 
 <br>
 
