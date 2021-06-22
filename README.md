@@ -113,3 +113,24 @@
   - localization
   - SSD
 
+<br>
+
+**[모듈 9] 추천 시스템**   
+(2021.06.14)
+
+
+
+<br>
+
+**[모듈 10] 비지도학습 (GAN과 시각 지능)**   
+(2021.06.15 - 2021.06.22)
+
+- vanila GAN
+- DCGAN
+- WGAN
+- CGAN
+- pix2pix
+- CycleGAN
+
+<br>
+
