@@ -8,23 +8,23 @@
 
 
 
-### [목차]
+## [목차]
 
-#### 1. [GAN의 기본](./document/1. GAN 기본.md)
+### 1. [GAN의 기본](https://github.com/sanga327/KSA/blob/main/Module10.%20%EB%B9%84%EC%A7%80%EB%8F%84%ED%95%99%EC%8A%B5(GAN%EA%B3%BC%20%EC%8B%9C%EA%B0%81%EC%A7%80%EB%8A%A5)/document/1.%20GAN%20%EA%B8%B0%EB%B3%B8.md)
 
-#### 2. GAN의 발전
+### 2. GAN의 발전
 
-​	**(1) [DCGAN]()**
+####    (1) [DCGAN]()
 
-​	**(2) [WGAN]()**
+####    (2) [WGAN]()
 
-​	**(3) [CGAN]()**
+####    (3) [CGAN]()
 
-#### 3. GAN의 응용
+### 3. GAN의 응용
 
-​	**(1) [pix2pix]()**
+####    (1) [pix2pix]()
 
-​	**(2) [CycleGAN]()**
+####    (2) [CycleGAN]()
 
 
 
