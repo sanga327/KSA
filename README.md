@@ -125,7 +125,7 @@
 **[모듈 10] 비지도학습 (GAN과 시각 지능)**   
 (2021.06.15 - 2021.06.22)
 
-- vanila GAN
+- vanilla GAN
 - DCGAN
 - WGAN
 - CGAN
