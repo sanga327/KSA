@@ -5,6 +5,7 @@
 - Airplane, car, cat, dog, flower, fruit, motorbike, person 총 8개
 
 <img src = "https://github.com/sanga327/KSA/blob/main/Module06. 딥러닝 심화/Image/image-20210530162657672.png">
+
 ---
 
 ### 2. 모델링
