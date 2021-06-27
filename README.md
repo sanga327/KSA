@@ -22,10 +22,10 @@
 (2021.04.12 - 2021.04.21)
 
 - C
-  - **[학생 검색 프로젝트](https://github.com/sanga327/C_Project) (C)**
+  - **[학생 검색 프로젝트](https://github.com/sanga327/C_Project)** (C)
 - Java
 - Android Studio
-  - **[공학용 계산기 프로젝트](https://github.com/sanga327/Java_Project) (JAVA, Android Studio)**
+  - **[공학용 계산기 프로젝트](https://github.com/sanga327/Java_Project)** (JAVA, Android Studio)
 <br>
 
 
@@ -72,7 +72,7 @@
 **[모듈 5] 영상처리**  
 (2021.05.11 - 2021.05.14)
 
-- **[영상 합성 프로젝트](https://github.com/sanga327/MFC_Project) (C++)**
+- **[영상 합성 프로젝트](https://github.com/sanga327/MFC_Project)** (C++)
 - 디지털 영상처리
   - MFC 
 - 화소점처리
