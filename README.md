@@ -111,7 +111,8 @@
 (2021.06.04 - 2021.06.10)
 - Object Detection
   - localization
-  - **[SSD](https://github.com/sanga327/Object_Detection)**
+  - SSD
+  - **[object detection 프로젝트](https://github.com/sanga327/Object_Detection)**
 
 <br>
 
