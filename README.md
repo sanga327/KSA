@@ -25,7 +25,7 @@
   - **[학생 검색 프로젝트](https://github.com/sanga327/C_Project) (C)**
 - Java
 - Android Studio
-  - **[공학용 계산기 프로젝트](https://github.com/sanga327/Java_Project) (JAVA, Android Studio)   **
+  - **[공학용 계산기 프로젝트](https://github.com/sanga327/Java_Project) (JAVA, Android Studio)**
 <br>
 
 
