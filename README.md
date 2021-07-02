@@ -13,7 +13,7 @@
 - Tool:  Anaconda | Jupyter notebook
 - Library: Pandas | Numpy | Matplotlib | Seaborn
 - Machine Learning Library: Sklearn
-- Deep Learning Framework: Keras | Tensorflow
+- Deep Learning Framework: Keras | Tensorflow  
 
 
 ---
@@ -137,7 +137,7 @@
 
 
 **[모듈 11] 자연어 처리**   
-(2021.06.24 - )
+(2021.06.24 - 2021.06.29)
 
 - 언어학의 기본 원리
 - 텍스트의 전처리
@@ -148,7 +148,7 @@
     - sms 스팸 여부 판단
 
 <br>
-
+  
 
 
 
